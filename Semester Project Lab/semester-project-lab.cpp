@@ -27,15 +27,18 @@ int main()
     tree.Insert("watermelon", 20, 5.37);
     tree.Insert("pizza", 6, 7.99);
     tree.Insert("zucchini", 15, 4.32);
+    tree.Insert("zucchini", 15, 4.32);
 
     //asks user if they want to either: 
     //find an item, edit an item's quanity and price, delete item, or quit
     int userInput = 0;
     string item;
+    int quantity;
+    double price;
 
     while (true)
     { 
-        cout << "Type 1 to find an item | Type 2 to edit an item's quanity/price | Type 3 to delete an item | Type 4 to quit" << endl;
+        cout << "Type 1 to find an item | Type 2 to edit an item's quanity/price | Type 3 to delete an item | Type 4 to add item | Type 5 to quit" << endl;
         cout << "Type Here: ";
         cin >> userInput;
 
@@ -65,8 +68,6 @@ int main()
         }
         else if (userInput == 2) //edit item
         {
-            int quantity;
-            double price;
             cout << "Type item name to edit: ";
             cin >> item;
             cout << "Type new quanity of " << item << ": ";
@@ -85,6 +86,22 @@ int main()
             cout << "Type item name to delete: ";
             cin >> item;
             tree.Remove(item);
+
+            //clear screen after user presses a key
+            cout << "Press any key to continue...";
+            int ch = _getch();
+            cout << "\033[2J\033[1;1H";
+        }
+        else if (userInput == 4) //add item
+        {
+            cout << "Type item name to add: ";
+            cin >> item;
+            cout << "Type quanity of " << item << ": ";
+            cin >> quantity;
+            cout << "Type price of " << item << ": ";
+            cin >> price;
+            tree.Insert(item, quantity, price);
+            cout << "Item sucessfully added!" << endl;
 
             //clear screen after user presses a key
             cout << "Press any key to continue...";
