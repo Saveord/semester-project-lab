@@ -27,22 +27,21 @@ int main()
     tree.Insert("watermelon", 20, 5.37);
     tree.Insert("pizza", 6, 7.99);
     tree.Insert("zucchini", 15, 4.32);
-    tree.Insert("zucchini", 15, 4.32);
 
     //asks user if they want to either: 
     //find an item, edit an item's quanity and price, delete item, or quit
-    int userInput = 0;
+    string userInput;
     string item;
     int quantity;
     double price;
 
     while (true)
     { 
-        cout << "Type 1 to find an item | Type 2 to edit an item's quanity/price | Type 3 to delete an item | Type 4 to add item | Type 5 to quit" << endl;
+        cout << "Type 1 to find an item | Type 2 to edit an item's quanity/price | Type 3 to delete an item | Type 4 to add item" << endl;
         cout << "Type Here: ";
         cin >> userInput;
 
-        if (userInput == 1) //find item
+        if (userInput == "1") //find item
         {
             //asks user to type what item to find
             cout << "Type item name to find: ";
@@ -66,7 +65,7 @@ int main()
             int ch = _getch();
             cout << "\033[2J\033[1;1H";
         }
-        else if (userInput == 2) //edit item
+        else if (userInput == "2") //edit item
         {
             cout << "Type item name to edit: ";
             cin >> item;
@@ -81,7 +80,7 @@ int main()
             int ch = _getch();
             cout << "\033[2J\033[1;1H";
         }
-        else if (userInput == 3) //delete item
+        else if (userInput == "3") //delete item
         {
             cout << "Type item name to delete: ";
             cin >> item;
@@ -92,7 +91,7 @@ int main()
             int ch = _getch();
             cout << "\033[2J\033[1;1H";
         }
-        else if (userInput == 4) //add item
+        else if (userInput == "4") //add item
         {
             cout << "Type item name to add: ";
             cin >> item;
@@ -102,6 +101,15 @@ int main()
             cin >> price;
             tree.Insert(item, quantity, price);
             cout << "Item sucessfully added!" << endl;
+
+            //clear screen after user presses a key
+            cout << "Press any key to continue...";
+            int ch = _getch();
+            cout << "\033[2J\033[1;1H";
+        }
+        else //user types invalid command
+        {
+            cout << "You did not type a valid command, try again." << endl;
 
             //clear screen after user presses a key
             cout << "Press any key to continue...";
