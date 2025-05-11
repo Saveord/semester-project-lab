@@ -190,7 +190,7 @@ public:
                 }
             } 
             //if current node does not equal item name
-            else if (currentNode->itemName.compare(itemName) > 0) //search right
+            else if (currentNode->itemName.compare(itemName) < 0) //search right
             { 
                 parent = currentNode;
                 currentNode = currentNode->right;

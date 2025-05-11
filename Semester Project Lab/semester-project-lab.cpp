@@ -37,7 +37,8 @@ int main()
 
     while (true)
     { 
-        cout << "Type 1 to find an item | Type 2 to edit an item's quanity/price | Type 3 to delete an item | Type 4 to add item" << endl;
+        cout << "----- Item Inventory Menu ------" << endl;
+        cout << "Type 1 to find an item\nType 2 to edit an item's quanity/price\nType 3 to delete an item\nType 4 to add an item\nType 5 to exit" << endl;
         cout << "Type Here: ";
         cin >> userInput;
 
@@ -106,6 +107,10 @@ int main()
             cout << "Press any key to continue...";
             int ch = _getch();
             cout << "\033[2J\033[1;1H";
+        }
+        else if (userInput == "5") //exit program
+        {
+            exit(0);
         }
         else //user types invalid command
         {
